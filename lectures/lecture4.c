@@ -3,8 +3,8 @@
 int main(){
     int len;
     scanf("%d", &len);
-    int arr[len];
-    int sortedArr[len];
+    long long arr[len];
+    long long sortedArr[len];
     int i, j;
     long long max=-2147483647;
     for(i = 0; i<len; i++){
