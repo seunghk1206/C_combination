@@ -27,7 +27,7 @@ int main(){
         max = -2147483647;
     }
     for(i = 0; i<len; i++){
-        printf("%d\n", sortedArr[i]);
+        printf("%d\n", sortedArr[len-i-1]);
     }
 }
 /*
