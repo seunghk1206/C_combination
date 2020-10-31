@@ -37,7 +37,8 @@ int main(){
         for(j=0; j<len; j++){
             if(tempL[j] == sortedArr[i]){
                 continue;
-            }else{
+            }
+            else{
                 if(j+1 == len){
                     printf("%d\n", sortedArr[j]);
                 }
