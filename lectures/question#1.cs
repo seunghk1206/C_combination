@@ -1,3 +1,4 @@
+using System;
 public class Solution {
     public string solution(int a, int b) {
         int SumODays, i;
