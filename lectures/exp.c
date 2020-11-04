@@ -17,7 +17,7 @@ char* solution(int a, int b) {
     answer = dayArr[SumODays%7];
     return answer;
 }
-char* main(){
+int main(){
     printf("%s\n", solution(5,24));
     return 0;
 }
