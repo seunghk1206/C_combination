@@ -1,17 +1,46 @@
-#include <stdio.h>
-
-long long max(int len, long long arr[]){
-    int i;
-    long long maxNum = -(__LONG_LONG_MAX__) - 1;
+int main(){
+    int len;
+    scanf("%d", &len);
+    //int score[] = {1,2,3,4,5,6};//이것도 가능!
+    long long arr[len], sortedArr[len], tempL[len];
+    long long max=-2147483647;
+    int i, j;
+    int count = 0;
+    for(i=0;i<len;i++){
+        printf("what number? ");
+        scanf("%d", &arr[i]);
+    }
+    for(j = 0; j < len; j++){
+        for(i=0; i<len; i++){
+            if (max<arr[i]){
+                max = arr[i];
+            }
+        }
+        for(i=0; i<len; i++){
+            if (max==arr[i]){
+                arr[i] = -2147483647;
+                break;
+            }
+        }
+        sortedArr[j] = max;
+        max = -2147483647;
+    }
     for(i = 0; i < len; i++){
-        if(arr[i] > maxNum){
-            maxNum = arr[i];
+        if(sortedArr[i] == sortedArr[i+1]){
+            tempL[count] == sortedArr[i];
+            count += 1;
         }
     }
-    return maxNum;
-}
-
-int main(){
-    long long arr[] = {1,2,3,4,5,6,1,2,3,4};
-    printf("%Ld \n", max(10, arr));
+    for(i = 0; i < len; i++){
+        for(j=0; j<len; j++){
+            if(tempL[j] == sortedArr[i]){
+                continue;
+            }
+            else{
+                if(j+1 == len){
+                    printf("%d\n", sortedArr[j]);
+                }
+            }
+        }
+    }
 }
