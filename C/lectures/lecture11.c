@@ -5,10 +5,10 @@ int main(){
     char c;
 
     printf("give me a number: ");
-    scanf("%d", &num);
+    scanf("%d \n", &num); // \n이 중요하다. 아니면 fflush(stdin); 을 써라 아니면 getchar()
 
     printf("give me a character : ");
-    scanf("%c", &c);
+    scanf("%c \n", &c);
 }
 /*
 int main(){
