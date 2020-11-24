@@ -64,6 +64,16 @@ long long *sorted(int len, long long *arr, long long *sortedArr){
     return sortedArr;
 }
 
+int lenstr(char str[]){
+    int count = 0;
+    int i = 0;
+    while(str[i] != '\0'){
+        ++i;
+        count += 1;
+    }
+    return count;
+}
+
 int main(){
     long long arr[10];
     long long sortedArr[10];
