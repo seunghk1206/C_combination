@@ -3,10 +3,7 @@
 
 int factorize(int N){
     int i, num;
-    if(N == 0){
-        printf("1 \n");
-    }
-    else if(N == 1){
+    if(N == 1){
         printf("1 \n");
     }
     else{
@@ -74,7 +71,31 @@ int lenstr(char str[]){
     return count;
 }
 
+void copy_str(char *dest, char *src){
+    while(*dest){
+        *src = *dest;
+        src++;
+        dest++;
+    }
+    *src = '\0';
+}
+
+void addStr(char *str1, char *str2, char *sumStr){
+    while(*str1){
+        *sumStr = *str1;
+        str1++;
+        sumStr++;
+    }
+    while(*str2){
+        *sumStr = *str2;
+        str2++;
+        sumStr++;
+    }
+    *sumStr = '\0';
+}
+
 int main(){
+    /*
     long long arr[10];
     long long sortedArr[10];
     int i;
@@ -87,6 +108,15 @@ int main(){
     for(i = 0; i< 10; i ++){
         printf("arr[%d] : %Ld \n", i, parr[i]);
     }
+    */
+    char str1[6] = "hello";
+    char str2[6] = "bye";
+    char sumStr[11];
+    addStr(str1, str2, sumStr);
+    printf("%s \n", sumStr);
+    copy_str(str1, str2);
+    printf("%s \n", str1);
+    printf("%s \n", str2);
 }
 
 // max 함수 받기
