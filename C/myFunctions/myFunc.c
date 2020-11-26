@@ -94,6 +94,72 @@ void addStr(char *str1, char *str2, char *sumStr){
     *sumStr = '\0';
 }
 
+int compare(char *str1, char *str2){
+    int i = 0;
+    while(*str1){
+        if(*str1 != *str2){
+            return 1;
+        }
+        else{
+            str1++;
+            str2++;
+            i++;
+        }
+    }
+    str1 -= i;
+    str2 -= i;
+    while(*str2){
+        if(*str2 != *str1){
+            return 1;
+        }
+        else{
+            str1++;
+            str2++;
+        }
+    }
+    return 0;
+}
+
+void compare_specific(char *str1, char *str2){
+    while(*str1){
+        if(*str1 != *str2){
+            printf("%c, %c \n", *str1, *str2);
+            str1++;
+            str2++;
+        }
+        else{
+            str1++;
+            str2++;
+        }
+    }
+}
+
+int search(char *str1, char *object){
+    int i = 0, j = 0;
+    while(*str1){
+        if(*str1 == *object){
+            while(*object){
+                object += 1;
+                j += 1;
+                if(*(str1+j) != *(object)){
+                    object -= j;
+                    j = 0;
+                    str1 += 1;
+                    break;
+                }
+            }
+            if(j != 0){
+                return i;
+            }
+        }
+        else{
+            str1++;
+            i++;
+        }
+    }
+    return -1;
+}
+
 int main(){
     /*
     long long arr[10];
@@ -109,6 +175,7 @@ int main(){
         printf("arr[%d] : %Ld \n", i, parr[i]);
     }
     */
+   /*
     char str1[6] = "hello";
     char str2[6] = "bye";
     char sumStr[11];
@@ -117,6 +184,12 @@ int main(){
     copy_str(str1, str2);
     printf("%s \n", str1);
     printf("%s \n", str2);
+    */
+    int i;
+    char str1[] = "I am a nerd, but I still love myself";
+    char str2[] = "love";
+    //compare_specific(str1, str2);
+    printf("%d", search(str1, str2));
 }
 
 // max 함수 받기
