@@ -135,21 +135,22 @@ void compare_specific(char *str1, char *str2){
 }
 
 int search(char *str1, char *object){
-    int i = 0, j = 0;
+    int i = 0, j = -1;
     while(*str1){
+        if(j > 0){
+            return i;
+        }
         if(*str1 == *object){
             while(*object){
                 object += 1;
                 j += 1;
                 if(*(str1+j) != *(object)){
                     object -= j;
-                    j = 0;
+                    j = -1;
                     str1 += 1;
+                    i += 1;
                     break;
                 }
-            }
-            if(j != 0){
-                return i;
             }
         }
         else{
