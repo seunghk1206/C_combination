@@ -134,33 +134,6 @@ void compare_specific(char *str1, char *str2){
     }
 }
 
-int search(char *str1, char *object){
-    int i = 0, j = -1;
-    while(*str1){
-        if(j > 0){
-            return i;
-        }
-        if(*str1 == *object){
-            while(*object){
-                object += 1;
-                j += 1;
-                if(*(str1+j) != *(object)){
-                    object -= j;
-                    j = -1;
-                    str1 += 1;
-                    i += 1;
-                    break;
-                }
-            }
-        }
-        else{
-            str1++;
-            i++;
-        }
-    }
-    return -1;
-}
-
 int main(){
     /*
     long long arr[10];
@@ -194,3 +167,32 @@ int main(){
 }
 
 // max 함수 받기
+
+/*
+int search(char *str1, char *object){
+    int i = 0, j = -1;
+    while(*str1){
+        if(j > 0){
+            return i;
+        }
+        if(*str1 == *object){
+            while(*object){
+                object += 1;
+                j += 1;
+                if(*(str1+j) != *(object)){
+                    object -= j;
+                    j = -1;
+                    str1 += 1;
+                    i += 1;
+                    break;
+                }
+            }
+        }
+        else{
+            str1++;
+            i++;
+        }
+    }
+    return -1;
+}
+*/
