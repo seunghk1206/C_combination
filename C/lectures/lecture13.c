@@ -80,73 +80,63 @@ int main(){
                 int ind;
                 int ind2;
                 int totNum = 0;
-                int closestInd;
+                int closestInd = 0;
                 printf("which book title? ");
                 scanf("%s", &Title);
                 for(ind = 0; ind < 1000; ind++){
                     LoTMap[ind] = compare(ListOfTitles[ind], Title, &totNum);
                 }
-                if(totNum == 0){
-                    printf("No books are found \n");
-                }else{
-                    for(ind2 = 0; ind2 < 100; ind2++){
-                        if(LoTMap[ind2] == 1){
-                            closestInd = ind2;
-                            break;
-                        }
+                for(ind2 = 0; ind2 < 100; ind2++){
+                    if(LoTMap[ind2] == 1){
+                        closestInd = ind2;
+                        break;
                     }
-                    printf("%d book stocks are available \n", totNum);
-                    printf("The nearest position of the book is: %d \n", closestInd);
                 }
-            }else if(input == 2){
+                printf("%d book stocks are available \n", totNum);
+                printf("The nearest position of the book is: %d \n", closestInd);
+            }
+            else if(input == 2){
                 int LoWMap[999];
                 char Title[99];
-                int ind = 0;
-                int ind2 = 0;
+                int ind;
+                int ind2;
                 int totNum = 0;
-                int closestInd;
+                int closestInd = 0;
                 printf("who is the writer? ");
                 scanf("%s", &Title);
                 for(ind = 0; ind < 1000; ind++){
                     LoWMap[ind] = compare(ListOfWriters[ind], Title, &totNum);
                 }
-                if(totNum == 0){
-                    printf("No books are found \n");
-                }else{
-                    for(ind2 = 0; ind2 < 100; ind2++){
-                        if(LoWMap[ind2] == 1){
-                            closestInd = ind2;
-                            break;
-                        }
+                for(ind2 = 0; ind2 < 100; ind2++){
+                    if(LoWMap[ind2] == 1){
+                        closestInd = ind2;
+                        break;
                     }
-                    printf("%d book stocks are available \n", totNum);
-                    printf("The nearest position of the book is: %d \n", closestInd);
                 }
-            }else if(input == 3){
+                printf("%d book stocks are available \n", totNum);
+                printf("The nearest position of the book is: %d \n", closestInd);
+            }
+            else if(input == 3){
                 int LoCMap[999];
                 char Title[99];
-                int ind = 0;
-                int ind2 = 0;
+                int ind;
+                int ind2;
                 int totNum = 0;
-                int closestInd;
+                int closestInd = 0;
                 printf("which company published the book? ");
                 scanf("%s", &Title);
                 for(ind = 0; ind < 1000; ind++){
                     LoCMap[ind] = compare(ListOfCompanies[ind], Title, &totNum);
                     ind++;
                 }
-                if(totNum == 0){
-                    printf("No books are found \n");
-                }else{
-                    for(ind2 = 0; ind2 < 100; ind2++){
-                        if(LoCMap[ind2] == 1){
-                            closestInd = ind2;
-                            break;
-                        }
+                for(ind2 = 0; ind2 < 100; ind2++){
+                    if(LoCMap[ind2] == 1){
+                        closestInd = ind2;
+                        break;
                     }
-                    printf("%d book stocks are available \n", totNum);
-                    printf("The nearest position of the book is: %d \n", closestInd);
                 }
+                printf("%d book stocks are available \n", totNum);
+                printf("The nearest position of the book is: %d \n", closestInd);
             }
         }else if(a == 3){
             fflush(stdin);
