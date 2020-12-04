@@ -93,8 +93,8 @@ int main(){
                     printf("the book is on %d th position \n", index);
                 }else{
                     printf("the book is not found \n");
-                broke = false;
                 }
+                broke = false; 
             }else if(input == 2){
                 scanf("%s", &title); 
                 fflush(stdin);
@@ -109,8 +109,8 @@ int main(){
                     printf("the book is on %d th position \n", index);
                 }else{
                     printf("the book is not found");
-                broke = false;
                 }
+                broke = false;
             }else if(input == 3){
                 scanf("%s", &title); 
                 fflush(stdin);
