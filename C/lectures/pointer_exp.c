@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <C:\Users\skkim\OneDrive\Documents\GitHub\C_combination\C\myFunctions\myFunc.c>
 int main(){
     char *p = "hello";
     printf("%s \n", p);
