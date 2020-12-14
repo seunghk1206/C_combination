@@ -44,58 +44,6 @@ void addABook(struct books *bookLInd){
     printf("What is the published company? \n");
     scanf("%s", &(bookLInd->PC));
     fflush(stdin);
-    bookLInd->borrowed = false;
-}
-
-void searchABook(struct books *bookL[], int bookLlen){
-    int input, i;
-    char searchInput[99];
-    bool breakBool = false;
-    printf("How will you search the book by? \n");
-    printf("1. Search by title \n");
-    printf("2. Search by author \n");
-    printf("3. Search by published company \n");
-    scanf("%d", &input);
-    if(input == 1){
-        scanf("%s", searchInput);
-        fflush(stdin);
-        for(i = 0; i < bookLlen; i++){
-            if(compare(&bookL[i]->title, &searchInput) == 1){
-                printf("The book you are finding is in %dth position \n", i);
-                breakBool = true;
-                break;
-            }
-        }
-        if(breakBool == false){
-            printf("The book you are finding is not found");
-        }
-    }else if(input == 2){
-        scanf("%s", searchInput);
-        fflush(stdin);
-        for(i = 0; i < bookLlen; i++){
-            if(compare(&bookL[i]->author, &searchInput) == 1){
-                printf("The book you are finding is in %dth position \n", i);
-                breakBool = true;
-                break;
-            }
-        }
-        if(breakBool == false){
-            printf("The book you are finding is not found");
-        }
-    }else if(input == 3){
-        scanf("%s", searchInput);
-        fflush(stdin);
-        for(i = 0; i < bookLlen; i++){
-            if(compare(&bookL[i]->PC, &searchInput) == 1){
-                printf("The book you are finding is in %dth position \n", i);
-                breakBool = true;
-                break;
-            }
-        }
-        if(breakBool == false){
-            printf("The book you are finding is not found");
-        }
-    }
 }
 
 void mainMenu(){
@@ -111,17 +59,99 @@ void mainMenu(){
 
 int main(){
     struct books bookL[999];
+    char title[99];
     bool run = true;
     int bookInd = 0;
-    int input;
+    int input, inp, i;
     while(run){
         mainMenu();
-        scanf("%s", &input);
+        scanf("%d", &input);
         if(input == 1){
             addABook(&bookL[bookInd]);
+            bookL[bookInd].borrowed = 0;
             bookInd++;
-        }else if(input == 2){
-            searchABook(&bookL, bookInd+1);
+        }
+        else if(input == 2){
+            bool broke = false;
+            printf("1. search by title \n");
+            printf("2. search by writer \n");
+            printf("3. search by company \n");
+            scanf("%d", &input); 
+            if(input == 1){
+                scanf("%s", &title); 
+                fflush(stdin);
+                for(i = 0; i < bookInd+1; i++){
+                    if(compare(bookL[i].title, title) == 0){
+                        broke = true;
+                        break;
+                    }
+                }
+                if(broke == true){
+                    printf("the book is on %d th position \n", i);
+                }else{
+                    printf("the book is not found \n");
+                }
+                broke = false; 
+            }else if(input == 2){
+                scanf("%s", &title); 
+                fflush(stdin);
+                for(i = 0; i < bookInd+1; i++){
+                    if(compare(bookL[i].author, title) == 0){
+                        broke = true;
+                        break;
+                    }
+                    i++;
+                }
+                if(broke == true){
+                    printf("the book is on %d th position \n", i);
+                }else{
+                    printf("the book is not found");
+                }
+                broke = false;
+            }else if(input == 3){
+                scanf("%s", &title); 
+                fflush(stdin);
+                for(i = 0; i < bookInd+1; i++){
+                    if(compare(bookL[i].PC, title) == 0){
+                        broke = true;
+                        break;
+                    }
+                    i++;
+                }
+                if(broke == true){
+                    printf("the book is on %d th position \n", i);
+                }else{
+                    printf("the book is not found \n");
+                }
+                broke = false;
+            }
+        }
+        else if(input == 3){
+            printf("Which index would you like to borrow? \n");
+            scanf("%d", &inp);
+            if(inp < bookInd){
+                if(bookL[inp].borrowed == false){
+                    bookL[inp].borrowed = true;
+                    printf("book, %s, successfully borrowed \n", bookL[inp].title);
+                }else{
+                    printf("book already borrowed. \n");
+                }
+            }else{
+                printf("no such book \n");
+            }
+        }
+        else if(input == 4){
+            printf("Which index would you like to return?(state the book's original index) \n");
+            scanf("%d", &inp);
+            if(bookL[inp].borrowed == true){
+                bookL[inp].borrowed == false;
+                printf("book, %s, successfully returned \n", bookL[inp].title);
+            }else{
+                printf("book already in the place. \n");
+            }
+        }
+        else if(input == 5){
+            run = false;
         }
     }
 }
