@@ -10,14 +10,12 @@ int main(int argc, char** argv) {
 	scanf("%d", &x);
 	printf("number of subjects : ");
 	scanf("%d", &y);
-	/*
 	arr = (int**)malloc(sizeof(int*) * x);
 	for (i = 0; i < x; i++) {
 		arr[i] = (int*)malloc(sizeof(int) * y);
 	}
-	*/
 	//This is the same as below
-	int(*arr)[x] = (int(*)[x])malloc(y*x*sizeof(int));
+	//int(*arr)[x] = (int(*)[x])malloc(y*x*sizeof(int));//gcc 아니면 g999이상만 가능
 	for (i = 0; i < x; i++) {
 		for (j = 0; j < x; j++) {
 			printf("%dth student's %dth subject score : ", i, j);
@@ -34,6 +32,7 @@ int main(int argc, char** argv) {
 	for (i = 0; i < x; i++) {
 		free(arr[i]);
 	}
+	free(arr);
 }
 /*
 int main(int argc, char** argv) {
