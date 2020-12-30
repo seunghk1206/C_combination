@@ -34,4 +34,5 @@ float = 4 bytes 소수점 7자리까지
 double = 8 bytes 소수점 15자리까지 정확한 값계산
 long double = 8 bytes 소수점 15자리까지 정확한 값계산
 long long = 16 bytes 매우김
+signed & unsigned 
 */
